@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: ${vcap.application.name:spark-cluster-task-demo}
+info:
+  app:
+    name: spark-demo
+    description: spark-demo
+    version: 0.0.1-SNAPSHOT
+
+#spark
+spark:
+  # client, cluster, yarn
+  taskMode: "client"
+  appName: "springcloud-spark-demo"
+  master: "local"
+  restUrl: ""
+  appStatusPollInterval: 10000
+  #client or cluster
+  yarnDeployMode: cluster
+  yarnAMMemory: "512M"
+  hadoopConfiguration:
+    fs.defaultFS: "hdfs://172.18.254.106:9000"
+    mapreduce.app-submission.cross-platform: "true"
+    mapreduce.framework.name: "yarn"
+    yarn.resourcemanager.address: "bomc106:8032"
+    yarn.resourcemanager.scheduler.address: "bomc106:8030"
+    mapreduce.jobhistory.address: "bomc107:10020"
+  numExecutors: 1
+  appClass: ""
+  appJar: ""
+  appArgs: ""
+  resourceArchives: ""
+  executorMemory: "512M"
+  driverMemory: "512M"
